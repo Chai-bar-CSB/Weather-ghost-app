@@ -10,10 +10,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+        /* ... all your other CSS goes here ... */
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
         * {
             font-family: 'Inter', sans-serif;
         }
@@ -185,16 +190,11 @@
                     .eq('to_user', mockDB.currentUser.username)
                     .eq('status', 'pending');
                 return data || [];
-            }
-        };
+        }
+    }; // This single brace closes the mockDB object correctly.
 
-            
-            getPendingRequests: () => {
-                return mockDB.requests.filter(r => 
-                    r.to === mockDB.currentUser.username && r.status === 'pending'
-                );
-            }
-        };
+    // Weather API Hook
+    const useWeather = () => {
 
         // Weather API Hook
         const useWeather = () => {
